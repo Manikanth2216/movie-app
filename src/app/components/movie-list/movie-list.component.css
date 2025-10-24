@@ -1,0 +1,54 @@
+.movie-list-container {
+  min-height: 400px;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  color: #667eea;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+.no-movies {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+
+.no-movies h3 {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.movies-grid {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alert-heading {
+  color: #721c24;
+}

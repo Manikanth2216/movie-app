@@ -1,0 +1,51 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <h1 class="hero-title">🎬 Streamify</h1>
+    <p class="hero-subtitle">Discover amazing movies, watch trailers, and find your next favorite film</p>
+    <div class="section-divider"></div>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-section">
+    <app-search-bar (searchQuery)="onSearchInput($event)" (searchSubmit)="onSearchSubmit($event)"></app-search-bar>
+  </div>
+
+  <!-- Filter Panel -->
+  <div class="filter-section">
+    <app-filter-panel (filterChange)="onFilterChange($event)"></app-filter-panel>
+  </div>
+
+  <!-- Results Summary -->
+  <div id="results-section" class="results-summary" *ngIf="!loading && !error">
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div class="results-info">
+        <h4 class="mb-1">
+          <span *ngIf="searchQuery">🔍 Search results for "{{ searchQuery }}"</span>
+          <span *ngIf="!searchQuery">🎬 Popular Movies</span>
+        </h4>
+        <small class="results-count">{{ filteredMovies.length }} movies found</small>
+      </div>
+      
+      <!-- Active Filters Count -->
+      <span class="badge filter-badge" *ngIf="getActiveFilterCount() > 0">
+        🎯 {{ getActiveFilterCount() }} filter(s) active
+      </span>
+    </div>
+    
+    <!-- No Results Message -->
+    <div class="alert alert-warning mt-3" *ngIf="filteredMovies.length === 0 && !loading">
+      <strong>🎭 No movies found!</strong><br>
+      Try adjusting your filters or search terms to discover more movies.
+    </div>
+  </div>
+
+  <!-- Movie List -->
+  <div class="movie-list-section">
+    <app-movie-list 
+      [movies]="filteredMovies" 
+      [loading]="loading" 
+      [error]="error">
+    </app-movie-list>
+  </div>
+</div>

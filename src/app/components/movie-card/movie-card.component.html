@@ -1,0 +1,36 @@
+<div class="card movie-card h-100">
+  <div class="card-img-container">
+    <img 
+      [src]="getImageUrl(movie.poster_path)" 
+      [alt]="movie.title + ' movie poster'"
+      class="card-img-top">
+    
+    <div class="rating-overlay">
+      ⭐ {{ movie.vote_average.toFixed(1) }}
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <h5 class="card-title">{{ movie.title }}</h5>
+    <p class="card-text">{{ movie.overview }}</p>
+    
+    <div class="movie-details">
+      <div class="movie-meta">
+        <span class="release-year">{{ movie.release_date | date:'yyyy' }}</span>
+        <span 
+          class="badge rating-badge" 
+          [ngClass]="'bg-' + getRatingColor(movie.vote_average)"
+          [attr.aria-label]="'Rating: ' + movie.vote_average.toFixed(1) + ' out of 10'">
+          {{ movie.vote_average.toFixed(1) }}/10
+        </span>
+      </div>
+      
+      <button 
+        class="btn btn-primary"
+        (click)="viewDetails()"
+        [attr.aria-label]="'View details for ' + movie.title">
+        View Details
+      </button>
+    </div>
+  </div>
+</div>

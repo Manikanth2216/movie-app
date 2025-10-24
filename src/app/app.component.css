@@ -1,0 +1,51 @@
+/* App component styles */
+.container-fluid {
+  min-height: 100vh;
+  padding: 0;
+  background: 
+    linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.6rem;
+    padding: 8px 16px;
+  }
+  
+  .container-fluid {
+    padding: 20px 15px;
+  }
+  
+  .header {
+    margin-bottom: 30px;
+    padding: 40px 20px;
+    border-radius: 20px;
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .header p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+  
+  .header {
+    padding: 30px 15px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .header p {
+    font-size: 1rem;
+  }
+}

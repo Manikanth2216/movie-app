@@ -1,0 +1,234 @@
+.filter-panel {
+  background: var(--card-background);
+  padding: 1.25rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.filter-panel:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.filter-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.filter-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  display: block;
+}
+
+.form-select,
+.form-control {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  background: var(--card-background);
+  color: var(--text-primary);
+}
+
+.form-select:focus,
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: #adb5bd;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.btn-outline-danger {
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+}
+
+.btn-outline-danger:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Column consistency */
+.row.g-3 > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+}
+
+.row.g-3 > [class*="col-"] > .form-label {
+  flex-shrink: 0;
+}
+
+.row.g-3 > [class*="col-"] > .form-select,
+.row.g-3 > [class*="col-"] > .form-control {
+  flex: 1;
+}
+
+/* Active Filters Styling */
+.active-filters {
+  padding-top: 25px;
+  border-top: 2px solid rgba(102, 126, 234, 0.1);
+  margin-top: 25px !important;
+}
+
+.active-filters h6 {
+  color: #667eea;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.active-filters .badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 18px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 25px;
+  margin: 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.active-filters .badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.btn-close {
+  font-size: 0.75rem;
+  padding: 0;
+  margin-left: 10px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-close:hover {
+  opacity: 1;
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-close-white {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .filter-panel {
+    padding: 20px;
+  }
+  
+  /* On medium screens, show 2 columns */
+  .row.g-3 > .col-lg {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-panel {
+    padding: 15px;
+    border-radius: 15px;
+  }
+  
+  /* On small screens, stack vertically */
+  .row.g-3 > .col-lg {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .form-label {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+  
+  .form-select,
+  .form-control,
+  .btn-outline-danger {
+    height: 44px;
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+  
+  .active-filters .badge {
+    font-size: 0.8rem;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-panel {
+    margin: 0 10px 20px 10px;
+    padding: 12px;
+  }
+  
+  .form-select,
+  .form-control,
+  .btn-outline-danger {
+    height: 40px;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+  
+  .active-filters {
+    padding-top: 15px;
+    margin-top: 15px !important;
+  }
+  
+  .active-filters .badge {
+    font-size: 0.75rem;
+    padding: 8px 12px;
+    margin: 2px;
+  }
+}
+
+/* Smooth hover effects for the entire panel */
+.filter-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Focus states for better accessibility */
+.form-select:focus,
+.form-control:focus,
+.btn-outline-danger:focus {
+  z-index: 3;
+  position: relative;
+}

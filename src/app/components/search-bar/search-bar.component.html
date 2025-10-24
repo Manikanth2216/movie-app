@@ -1,0 +1,40 @@
+<div class="search-container">
+  <div class="search-wrapper">
+    <div class="search-input-group">
+      <input 
+        type="text" 
+        id="movie-search"
+        name="movie-search"
+        class="search-input" 
+        placeholder="Search for movies"
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="onSearch()"
+        (input)="onInput()"
+        (focus)="onFocus()"
+        (blur)="onBlur()"
+        aria-label="Search for movies">
+      <div class="search-underline"></div>
+      <div class="search-buttons" *ngIf="searchTerm">
+        <button 
+          class="search-btn" 
+          type="button" 
+          (click)="onSearch()"
+          aria-label="Search movies">
+          <span class="search-btn-icon">🔍</span>
+        </button>
+        <button 
+          class="clear-btn" 
+          type="button" 
+          (click)="onClear()"
+          aria-label="Clear search">
+          <span class="clear-icon">✕</span>
+        </button>
+      </div>
+    </div>
+    <div class="search-suggestions" *ngIf="showSuggestions && searchTerm">
+      <div class="suggestion-item">🎬 Search movies: "{{ searchTerm }}"</div>
+      <div class="suggestion-item">🎭 Find by actor or director</div>
+      <div class="suggestion-item">🎪 Browse by genre</div>
+    </div>
+  </div>
+</div>
